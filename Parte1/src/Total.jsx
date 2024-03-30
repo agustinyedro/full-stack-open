@@ -1,5 +1,5 @@
-const Total = ({part1, part2, part3}) => {
-    const total = part1.exercises + part2.exercises + part3.exercises
+const Total = ({parts}) => {
+    const total = parts[0].exercises + parts[1].exercises + parts[2].exercises
     return (
         <p>
             Number of exercises {total}
