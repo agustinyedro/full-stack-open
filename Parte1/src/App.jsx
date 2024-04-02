@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-import Part from "./Part";
+import Statistics from "./Statistics";
 import Button from "./Button";
 
 const App = () => {
@@ -23,26 +23,13 @@ const App = () => {
     setBad(newValue);
   };
 
-  const total = good + neutral + bad
-
-  const averageScore = (good * 1 + neutral * 0 + bad * -1) / total || 0
-
-  const positivePercentage = (good / total) * 100 || 0
-
   return (
     <div>
       <Header course={course} />
       <Button handleClick={() => setToGood(good + 1)} text="good" />
       <Button handleClick={() => setToNeutral(neutral + 1)} text="neutral" />
       <Button handleClick={() => setToBad(bad + 1)} text="bad" />
-      <h1>Stadistics</h1>
-      <br></br>
-      <Part value={good} name="good" />
-      <Part value={neutral} name="neutral" />
-      <Part value={bad} name="bad" />
-      <Part value={total} name="total" />
-      <Part value={averageScore} name="average score" />
-      <Part value={`${positivePercentage}%`} name="positive percentage" />
+      <Statistics value={good} value1={neutral} value2={bad}/>
     </div>
   );
 };
