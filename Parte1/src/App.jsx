@@ -23,6 +23,12 @@ const App = () => {
     setBad(newValue);
   };
 
+  const total = good + neutral + bad
+
+  const averageScore = (good * 1 + neutral * 0 + bad * -1) / total || 0
+
+  const positivePercentage = (good / total) * 100 || 0
+
   return (
     <div>
       <Header course={course} />
@@ -34,6 +40,9 @@ const App = () => {
       <Part value={good} name="good" />
       <Part value={neutral} name="neutral" />
       <Part value={bad} name="bad" />
+      <Part value={total} name="total" />
+      <Part value={averageScore} name="average score" />
+      <Part value={`${positivePercentage}%`} name="positive percentage" />
     </div>
   );
 };
