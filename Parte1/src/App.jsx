@@ -14,7 +14,15 @@ const App = () => {
   ]
 
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
 
+  const handleVote = () => {
+    
+    const copy = [...votes]
+    copy[selected] += 1
+    setVotes(copy)
+    console.log(copy);
+  }
 
   const handleClick = () => {
     console.log(selected);
@@ -26,7 +34,7 @@ const App = () => {
     <div>
       <h3>{anecdotes[selected]}</h3>
       <br />
-      
+      <Button handleClick={handleVote} text="vote" />
       <Button handleClick={handleClick} text="next anecdote" />
     </div>
   )
